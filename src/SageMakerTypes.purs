@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -47,7 +46,7 @@ instance encodeHeader :: Encode Header where encode = genericEncode options
 
 -- | <p> Internal failure occurred. </p>
 newtype InternalFailure = InternalFailure 
-  { "Message" :: NullOrUndefined (Message)
+  { "Message" :: Maybe (Message)
   }
 derive instance newtypeInternalFailure :: Newtype InternalFailure _
 derive instance repGenericInternalFailure :: Generic InternalFailure _
@@ -57,20 +56,20 @@ instance encodeInternalFailure :: Encode InternalFailure where encode = genericE
 
 -- | Constructs InternalFailure from required parameters
 newInternalFailure :: InternalFailure
-newInternalFailure  = InternalFailure { "Message": (NullOrUndefined Nothing) }
+newInternalFailure  = InternalFailure { "Message": Nothing }
 
 -- | Constructs InternalFailure's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalFailure' :: ( { "Message" :: NullOrUndefined (Message) } -> {"Message" :: NullOrUndefined (Message) } ) -> InternalFailure
-newInternalFailure'  customize = (InternalFailure <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInternalFailure' :: ( { "Message" :: Maybe (Message) } -> {"Message" :: Maybe (Message) } ) -> InternalFailure
+newInternalFailure'  customize = (InternalFailure <<< customize) { "Message": Nothing }
 
 
 
 newtype InvokeEndpointInput = InvokeEndpointInput 
   { "EndpointName" :: (EndpointName)
   , "Body" :: (BodyBlob)
-  , "ContentType" :: NullOrUndefined (Header)
-  , "Accept" :: NullOrUndefined (Header)
+  , "ContentType" :: Maybe (Header)
+  , "Accept" :: Maybe (Header)
   }
 derive instance newtypeInvokeEndpointInput :: Newtype InvokeEndpointInput _
 derive instance repGenericInvokeEndpointInput :: Generic InvokeEndpointInput _
@@ -80,19 +79,19 @@ instance encodeInvokeEndpointInput :: Encode InvokeEndpointInput where encode = 
 
 -- | Constructs InvokeEndpointInput from required parameters
 newInvokeEndpointInput :: BodyBlob -> EndpointName -> InvokeEndpointInput
-newInvokeEndpointInput _Body _EndpointName = InvokeEndpointInput { "Body": _Body, "EndpointName": _EndpointName, "Accept": (NullOrUndefined Nothing), "ContentType": (NullOrUndefined Nothing) }
+newInvokeEndpointInput _Body _EndpointName = InvokeEndpointInput { "Body": _Body, "EndpointName": _EndpointName, "Accept": Nothing, "ContentType": Nothing }
 
 -- | Constructs InvokeEndpointInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvokeEndpointInput' :: BodyBlob -> EndpointName -> ( { "EndpointName" :: (EndpointName) , "Body" :: (BodyBlob) , "ContentType" :: NullOrUndefined (Header) , "Accept" :: NullOrUndefined (Header) } -> {"EndpointName" :: (EndpointName) , "Body" :: (BodyBlob) , "ContentType" :: NullOrUndefined (Header) , "Accept" :: NullOrUndefined (Header) } ) -> InvokeEndpointInput
-newInvokeEndpointInput' _Body _EndpointName customize = (InvokeEndpointInput <<< customize) { "Body": _Body, "EndpointName": _EndpointName, "Accept": (NullOrUndefined Nothing), "ContentType": (NullOrUndefined Nothing) }
+newInvokeEndpointInput' :: BodyBlob -> EndpointName -> ( { "EndpointName" :: (EndpointName) , "Body" :: (BodyBlob) , "ContentType" :: Maybe (Header) , "Accept" :: Maybe (Header) } -> {"EndpointName" :: (EndpointName) , "Body" :: (BodyBlob) , "ContentType" :: Maybe (Header) , "Accept" :: Maybe (Header) } ) -> InvokeEndpointInput
+newInvokeEndpointInput' _Body _EndpointName customize = (InvokeEndpointInput <<< customize) { "Body": _Body, "EndpointName": _EndpointName, "Accept": Nothing, "ContentType": Nothing }
 
 
 
 newtype InvokeEndpointOutput = InvokeEndpointOutput 
   { "Body" :: (BodyBlob)
-  , "ContentType" :: NullOrUndefined (Header)
-  , "InvokedProductionVariant" :: NullOrUndefined (Header)
+  , "ContentType" :: Maybe (Header)
+  , "InvokedProductionVariant" :: Maybe (Header)
   }
 derive instance newtypeInvokeEndpointOutput :: Newtype InvokeEndpointOutput _
 derive instance repGenericInvokeEndpointOutput :: Generic InvokeEndpointOutput _
@@ -102,12 +101,12 @@ instance encodeInvokeEndpointOutput :: Encode InvokeEndpointOutput where encode 
 
 -- | Constructs InvokeEndpointOutput from required parameters
 newInvokeEndpointOutput :: BodyBlob -> InvokeEndpointOutput
-newInvokeEndpointOutput _Body = InvokeEndpointOutput { "Body": _Body, "ContentType": (NullOrUndefined Nothing), "InvokedProductionVariant": (NullOrUndefined Nothing) }
+newInvokeEndpointOutput _Body = InvokeEndpointOutput { "Body": _Body, "ContentType": Nothing, "InvokedProductionVariant": Nothing }
 
 -- | Constructs InvokeEndpointOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvokeEndpointOutput' :: BodyBlob -> ( { "Body" :: (BodyBlob) , "ContentType" :: NullOrUndefined (Header) , "InvokedProductionVariant" :: NullOrUndefined (Header) } -> {"Body" :: (BodyBlob) , "ContentType" :: NullOrUndefined (Header) , "InvokedProductionVariant" :: NullOrUndefined (Header) } ) -> InvokeEndpointOutput
-newInvokeEndpointOutput' _Body customize = (InvokeEndpointOutput <<< customize) { "Body": _Body, "ContentType": (NullOrUndefined Nothing), "InvokedProductionVariant": (NullOrUndefined Nothing) }
+newInvokeEndpointOutput' :: BodyBlob -> ( { "Body" :: (BodyBlob) , "ContentType" :: Maybe (Header) , "InvokedProductionVariant" :: Maybe (Header) } -> {"Body" :: (BodyBlob) , "ContentType" :: Maybe (Header) , "InvokedProductionVariant" :: Maybe (Header) } ) -> InvokeEndpointOutput
+newInvokeEndpointOutput' _Body customize = (InvokeEndpointOutput <<< customize) { "Body": _Body, "ContentType": Nothing, "InvokedProductionVariant": Nothing }
 
 
 
@@ -131,10 +130,10 @@ instance encodeMessage :: Encode Message where encode = genericEncode options
 
 -- | <p> Model (owned by the customer in the container) returned an error 500. </p>
 newtype ModelError = ModelError 
-  { "Message" :: NullOrUndefined (Message)
-  , "OriginalStatusCode" :: NullOrUndefined (StatusCode)
-  , "OriginalMessage" :: NullOrUndefined (Message)
-  , "LogStreamArn" :: NullOrUndefined (LogStreamArn)
+  { "Message" :: Maybe (Message)
+  , "OriginalStatusCode" :: Maybe (StatusCode)
+  , "OriginalMessage" :: Maybe (Message)
+  , "LogStreamArn" :: Maybe (LogStreamArn)
   }
 derive instance newtypeModelError :: Newtype ModelError _
 derive instance repGenericModelError :: Generic ModelError _
@@ -144,18 +143,18 @@ instance encodeModelError :: Encode ModelError where encode = genericEncode opti
 
 -- | Constructs ModelError from required parameters
 newModelError :: ModelError
-newModelError  = ModelError { "LogStreamArn": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing), "OriginalMessage": (NullOrUndefined Nothing), "OriginalStatusCode": (NullOrUndefined Nothing) }
+newModelError  = ModelError { "LogStreamArn": Nothing, "Message": Nothing, "OriginalMessage": Nothing, "OriginalStatusCode": Nothing }
 
 -- | Constructs ModelError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newModelError' :: ( { "Message" :: NullOrUndefined (Message) , "OriginalStatusCode" :: NullOrUndefined (StatusCode) , "OriginalMessage" :: NullOrUndefined (Message) , "LogStreamArn" :: NullOrUndefined (LogStreamArn) } -> {"Message" :: NullOrUndefined (Message) , "OriginalStatusCode" :: NullOrUndefined (StatusCode) , "OriginalMessage" :: NullOrUndefined (Message) , "LogStreamArn" :: NullOrUndefined (LogStreamArn) } ) -> ModelError
-newModelError'  customize = (ModelError <<< customize) { "LogStreamArn": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing), "OriginalMessage": (NullOrUndefined Nothing), "OriginalStatusCode": (NullOrUndefined Nothing) }
+newModelError' :: ( { "Message" :: Maybe (Message) , "OriginalStatusCode" :: Maybe (StatusCode) , "OriginalMessage" :: Maybe (Message) , "LogStreamArn" :: Maybe (LogStreamArn) } -> {"Message" :: Maybe (Message) , "OriginalStatusCode" :: Maybe (StatusCode) , "OriginalMessage" :: Maybe (Message) , "LogStreamArn" :: Maybe (LogStreamArn) } ) -> ModelError
+newModelError'  customize = (ModelError <<< customize) { "LogStreamArn": Nothing, "Message": Nothing, "OriginalMessage": Nothing, "OriginalStatusCode": Nothing }
 
 
 
 -- | <p> Service is unavailable. Try your call again. </p>
 newtype ServiceUnavailable = ServiceUnavailable 
-  { "Message" :: NullOrUndefined (Message)
+  { "Message" :: Maybe (Message)
   }
 derive instance newtypeServiceUnavailable :: Newtype ServiceUnavailable _
 derive instance repGenericServiceUnavailable :: Generic ServiceUnavailable _
@@ -165,12 +164,12 @@ instance encodeServiceUnavailable :: Encode ServiceUnavailable where encode = ge
 
 -- | Constructs ServiceUnavailable from required parameters
 newServiceUnavailable :: ServiceUnavailable
-newServiceUnavailable  = ServiceUnavailable { "Message": (NullOrUndefined Nothing) }
+newServiceUnavailable  = ServiceUnavailable { "Message": Nothing }
 
 -- | Constructs ServiceUnavailable's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceUnavailable' :: ( { "Message" :: NullOrUndefined (Message) } -> {"Message" :: NullOrUndefined (Message) } ) -> ServiceUnavailable
-newServiceUnavailable'  customize = (ServiceUnavailable <<< customize) { "Message": (NullOrUndefined Nothing) }
+newServiceUnavailable' :: ( { "Message" :: Maybe (Message) } -> {"Message" :: Maybe (Message) } ) -> ServiceUnavailable
+newServiceUnavailable'  customize = (ServiceUnavailable <<< customize) { "Message": Nothing }
 
 
 
@@ -185,7 +184,7 @@ instance encodeStatusCode :: Encode StatusCode where encode = genericEncode opti
 
 -- | <p> Inspect your request and try again. </p>
 newtype ValidationError = ValidationError 
-  { "Message" :: NullOrUndefined (Message)
+  { "Message" :: Maybe (Message)
   }
 derive instance newtypeValidationError :: Newtype ValidationError _
 derive instance repGenericValidationError :: Generic ValidationError _
@@ -195,10 +194,10 @@ instance encodeValidationError :: Encode ValidationError where encode = genericE
 
 -- | Constructs ValidationError from required parameters
 newValidationError :: ValidationError
-newValidationError  = ValidationError { "Message": (NullOrUndefined Nothing) }
+newValidationError  = ValidationError { "Message": Nothing }
 
 -- | Constructs ValidationError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newValidationError' :: ( { "Message" :: NullOrUndefined (Message) } -> {"Message" :: NullOrUndefined (Message) } ) -> ValidationError
-newValidationError'  customize = (ValidationError <<< customize) { "Message": (NullOrUndefined Nothing) }
+newValidationError' :: ( { "Message" :: Maybe (Message) } -> {"Message" :: Maybe (Message) } ) -> ValidationError
+newValidationError'  customize = (ValidationError <<< customize) { "Message": Nothing }
 

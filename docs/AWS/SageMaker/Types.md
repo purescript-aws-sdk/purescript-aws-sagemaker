@@ -58,7 +58,7 @@ Encode Header
 
 ``` purescript
 newtype InternalFailure
-  = InternalFailure { "Message" :: NullOrUndefined (Message) }
+  = InternalFailure { "Message" :: Maybe (Message) }
 ```
 
 <p> Internal failure occurred. </p>
@@ -83,7 +83,7 @@ Constructs InternalFailure from required parameters
 #### `newInternalFailure'`
 
 ``` purescript
-newInternalFailure' :: ({ "Message" :: NullOrUndefined (Message) } -> { "Message" :: NullOrUndefined (Message) }) -> InternalFailure
+newInternalFailure' :: ({ "Message" :: Maybe (Message) } -> { "Message" :: Maybe (Message) }) -> InternalFailure
 ```
 
 Constructs InternalFailure's fields from required parameters
@@ -92,7 +92,7 @@ Constructs InternalFailure's fields from required parameters
 
 ``` purescript
 newtype InvokeEndpointInput
-  = InvokeEndpointInput { "EndpointName" :: EndpointName, "Body" :: BodyBlob, "ContentType" :: NullOrUndefined (Header), "Accept" :: NullOrUndefined (Header) }
+  = InvokeEndpointInput { "EndpointName" :: EndpointName, "Body" :: BodyBlob, "ContentType" :: Maybe (Header), "Accept" :: Maybe (Header) }
 ```
 
 ##### Instances
@@ -115,7 +115,7 @@ Constructs InvokeEndpointInput from required parameters
 #### `newInvokeEndpointInput'`
 
 ``` purescript
-newInvokeEndpointInput' :: BodyBlob -> EndpointName -> ({ "EndpointName" :: EndpointName, "Body" :: BodyBlob, "ContentType" :: NullOrUndefined (Header), "Accept" :: NullOrUndefined (Header) } -> { "EndpointName" :: EndpointName, "Body" :: BodyBlob, "ContentType" :: NullOrUndefined (Header), "Accept" :: NullOrUndefined (Header) }) -> InvokeEndpointInput
+newInvokeEndpointInput' :: BodyBlob -> EndpointName -> ({ "EndpointName" :: EndpointName, "Body" :: BodyBlob, "ContentType" :: Maybe (Header), "Accept" :: Maybe (Header) } -> { "EndpointName" :: EndpointName, "Body" :: BodyBlob, "ContentType" :: Maybe (Header), "Accept" :: Maybe (Header) }) -> InvokeEndpointInput
 ```
 
 Constructs InvokeEndpointInput's fields from required parameters
@@ -124,7 +124,7 @@ Constructs InvokeEndpointInput's fields from required parameters
 
 ``` purescript
 newtype InvokeEndpointOutput
-  = InvokeEndpointOutput { "Body" :: BodyBlob, "ContentType" :: NullOrUndefined (Header), "InvokedProductionVariant" :: NullOrUndefined (Header) }
+  = InvokeEndpointOutput { "Body" :: BodyBlob, "ContentType" :: Maybe (Header), "InvokedProductionVariant" :: Maybe (Header) }
 ```
 
 ##### Instances
@@ -147,7 +147,7 @@ Constructs InvokeEndpointOutput from required parameters
 #### `newInvokeEndpointOutput'`
 
 ``` purescript
-newInvokeEndpointOutput' :: BodyBlob -> ({ "Body" :: BodyBlob, "ContentType" :: NullOrUndefined (Header), "InvokedProductionVariant" :: NullOrUndefined (Header) } -> { "Body" :: BodyBlob, "ContentType" :: NullOrUndefined (Header), "InvokedProductionVariant" :: NullOrUndefined (Header) }) -> InvokeEndpointOutput
+newInvokeEndpointOutput' :: BodyBlob -> ({ "Body" :: BodyBlob, "ContentType" :: Maybe (Header), "InvokedProductionVariant" :: Maybe (Header) } -> { "Body" :: BodyBlob, "ContentType" :: Maybe (Header), "InvokedProductionVariant" :: Maybe (Header) }) -> InvokeEndpointOutput
 ```
 
 Constructs InvokeEndpointOutput's fields from required parameters
@@ -188,7 +188,7 @@ Encode Message
 
 ``` purescript
 newtype ModelError
-  = ModelError { "Message" :: NullOrUndefined (Message), "OriginalStatusCode" :: NullOrUndefined (StatusCode), "OriginalMessage" :: NullOrUndefined (Message), "LogStreamArn" :: NullOrUndefined (LogStreamArn) }
+  = ModelError { "Message" :: Maybe (Message), "OriginalStatusCode" :: Maybe (StatusCode), "OriginalMessage" :: Maybe (Message), "LogStreamArn" :: Maybe (LogStreamArn) }
 ```
 
 <p> Model (owned by the customer in the container) returned an error 500. </p>
@@ -213,7 +213,7 @@ Constructs ModelError from required parameters
 #### `newModelError'`
 
 ``` purescript
-newModelError' :: ({ "Message" :: NullOrUndefined (Message), "OriginalStatusCode" :: NullOrUndefined (StatusCode), "OriginalMessage" :: NullOrUndefined (Message), "LogStreamArn" :: NullOrUndefined (LogStreamArn) } -> { "Message" :: NullOrUndefined (Message), "OriginalStatusCode" :: NullOrUndefined (StatusCode), "OriginalMessage" :: NullOrUndefined (Message), "LogStreamArn" :: NullOrUndefined (LogStreamArn) }) -> ModelError
+newModelError' :: ({ "Message" :: Maybe (Message), "OriginalStatusCode" :: Maybe (StatusCode), "OriginalMessage" :: Maybe (Message), "LogStreamArn" :: Maybe (LogStreamArn) } -> { "Message" :: Maybe (Message), "OriginalStatusCode" :: Maybe (StatusCode), "OriginalMessage" :: Maybe (Message), "LogStreamArn" :: Maybe (LogStreamArn) }) -> ModelError
 ```
 
 Constructs ModelError's fields from required parameters
@@ -222,7 +222,7 @@ Constructs ModelError's fields from required parameters
 
 ``` purescript
 newtype ServiceUnavailable
-  = ServiceUnavailable { "Message" :: NullOrUndefined (Message) }
+  = ServiceUnavailable { "Message" :: Maybe (Message) }
 ```
 
 <p> Service is unavailable. Try your call again. </p>
@@ -247,7 +247,7 @@ Constructs ServiceUnavailable from required parameters
 #### `newServiceUnavailable'`
 
 ``` purescript
-newServiceUnavailable' :: ({ "Message" :: NullOrUndefined (Message) } -> { "Message" :: NullOrUndefined (Message) }) -> ServiceUnavailable
+newServiceUnavailable' :: ({ "Message" :: Maybe (Message) } -> { "Message" :: Maybe (Message) }) -> ServiceUnavailable
 ```
 
 Constructs ServiceUnavailable's fields from required parameters
@@ -272,7 +272,7 @@ Encode StatusCode
 
 ``` purescript
 newtype ValidationError
-  = ValidationError { "Message" :: NullOrUndefined (Message) }
+  = ValidationError { "Message" :: Maybe (Message) }
 ```
 
 <p> Inspect your request and try again. </p>
@@ -297,7 +297,7 @@ Constructs ValidationError from required parameters
 #### `newValidationError'`
 
 ``` purescript
-newValidationError' :: ({ "Message" :: NullOrUndefined (Message) } -> { "Message" :: NullOrUndefined (Message) }) -> ValidationError
+newValidationError' :: ({ "Message" :: Maybe (Message) } -> { "Message" :: Maybe (Message) }) -> ValidationError
 ```
 
 Constructs ValidationError's fields from required parameters
